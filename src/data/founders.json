@@ -1,0 +1,34 @@
+[
+  {
+    "id": "founder-01",
+    "name": "[FOUNDER NAME]",
+    "role": "Founder & Creative Director",
+    "isPlaceholder": true,
+    "placeholderNotice": "PENDING OWNER SUBMISSION — Replace in src/data/founders.json and public/assets/about/founders/",
+    "image": "/assets/about/founders/founder-01.jpg",
+    "imageFallback": "/assets/contact-sheet/frame-01.jpg.png",
+    "bio": "Directs the architectural silhouettes, tactile fabric research, and brutalist identity of BEYOND. Grounded in the intersection of industrial geometry and garment construction.",
+    "quote": "“Every piece starts as an unfinished study. Wear completes it.”",
+    "social": {
+      "platform": "Instagram",
+      "handle": "@beyond.director",
+      "url": "https://instagram.com"
+    }
+  },
+  {
+    "id": "founder-02",
+    "name": "[CO-FOUNDER NAME]",
+    "role": "Co-Founder & Brand Director",
+    "isPlaceholder": true,
+    "placeholderNotice": "PENDING OWNER SUBMISSION — Replace in src/data/founders.json and public/assets/about/founders/",
+    "image": "/assets/about/founders/founder-02.jpg",
+    "imageFallback": "/assets/contact-sheet/frame-04.jpg.png",
+    "bio": "Oversees the brand's physical boutique curation, restricted product archives, and editorial vision. Translating concrete studio spaces into tactile fashion experiences.",
+    "quote": "“We do not design for passing seasons. We build permanent artifacts.”",
+    "social": {
+      "platform": "Instagram",
+      "handle": "@beyond.archive",
+      "url": "https://instagram.com"
+    }
+  }
+]

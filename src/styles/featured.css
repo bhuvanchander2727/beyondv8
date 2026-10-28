@@ -1,0 +1,456 @@
+/* ==========================================================================
+   BEYOND — Featured Collection (The Concrete Study)
+   Compact, editorial 3-col desktop / 2-col mobile streetwear catalog
+   ========================================================================== */
+
+.featured-collection {
+  position: relative;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: clamp(32px, 4vw, 56px) clamp(16px, 3.5vw, 44px);
+  background: transparent;
+  color: var(--chalk, #fff);
+  border-bottom: 1px solid rgba(240, 238, 233, 0.16);
+}
+
+/* --------------------------------------------------------------------------
+   1. Compact Collection Header
+   -------------------------------------------------------------------------- */
+
+.fc-header {
+  margin-bottom: clamp(20px, 3vw, 32px);
+  border-bottom: 1px solid rgba(240, 238, 233, 0.16);
+  padding-bottom: 16px;
+}
+
+.fc-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 233, 0.65);
+  margin-bottom: 12px;
+}
+
+.fc-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fc-meta-dot {
+  color: var(--chalk, #fff);
+  font-size: 8px;
+}
+
+.fc-meta-sep {
+  color: rgba(240, 238, 233, 0.3);
+}
+
+.fc-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--chalk, #fff);
+  padding: 5px 12px;
+  border: 1px solid rgba(240, 238, 233, 0.3);
+  background: rgba(23, 23, 21, 0.6);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.fc-view-all:hover {
+  background: var(--chalk, #fff);
+  color: var(--ink, #171715);
+  border-color: var(--chalk, #fff);
+}
+
+.fc-view-all .fc-arrow {
+  transition: transform 0.2s ease;
+}
+
+.fc-view-all:hover .fc-arrow {
+  transform: translate(2px, -2px);
+}
+
+.fc-header-headline-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.fc-title {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-size: clamp(28px, 4.4vw, 52px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--chalk, #fff);
+}
+
+.fc-header-sub {
+  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: rgba(240, 238, 233, 0.45);
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   2. Product Grid (3-Col Desktop / 2-Col Mobile)
+   -------------------------------------------------------------------------- */
+
+.fc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* --------------------------------------------------------------------------
+   3. Compact Product Card Architecture
+   -------------------------------------------------------------------------- */
+
+.fc-card {
+  position: relative;
+  background: #0f0f0e;
+  border: 1px solid rgba(240, 238, 233, 0.14);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fc-card:hover {
+  border-color: rgba(240, 238, 233, 0.42);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Top Identification Bar */
+.fc-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(23, 23, 21, 0.85);
+  border-bottom: 1px solid rgba(240, 238, 233, 0.1);
+  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 233, 0.55);
+}
+
+.fc-card-id {
+  color: rgba(240, 238, 233, 0.55);
+}
+
+.fc-card-cat {
+  color: var(--chalk, #fff);
+  font-weight: 600;
+}
+
+/* Consistent 4:5 Media Container */
+.fc-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: #131312;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.fc-crosshair {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  color: rgba(240, 238, 233, 0.35);
+  pointer-events: none;
+  z-index: 2;
+  user-select: none;
+}
+
+/* Photo and Canvas Styling */
+.fc-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 14px;
+  display: block;
+  box-sizing: border-box;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fc-card:hover .fc-img {
+  transform: scale(1.03);
+}
+
+.fc-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.fc-card:hover .fc-canvas {
+  transform: scale(1.02);
+}
+
+/* Compact Card Body */
+.fc-card-info {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #0f0f0e;
+  border-top: 1px solid rgba(240, 238, 233, 0.1);
+}
+
+.fc-info-primary {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.fc-name {
+  margin: 0;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--chalk, #fff);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fc-name a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.fc-name a:hover {
+  color: var(--ow, #f0eee9);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fc-price {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--chalk, #fff);
+  flex-shrink: 0;
+}
+
+/* Secondary Meta & Colorway Controls */
+.fc-info-secondary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  min-height: 24px;
+}
+
+.fc-colorways {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.fc-color-btn {
+  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  background: transparent;
+  border: 1px solid rgba(240, 238, 233, 0.2);
+  color: rgba(240, 238, 233, 0.7);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.15s ease;
+  min-height: 22px;
+}
+
+.fc-color-btn[aria-pressed="true"],
+.fc-color-btn:hover {
+  background: var(--chalk, #fff);
+  color: var(--ink, #171715);
+  border-color: var(--chalk, #fff);
+}
+
+.fc-single-color {
+  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  color: rgba(240, 238, 233, 0.45);
+  text-transform: uppercase;
+}
+
+.fc-arrow-link {
+  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(240, 238, 233, 0.7);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(240, 238, 233, 0.2);
+  transition: all 0.15s ease;
+}
+
+.fc-arrow-link:hover {
+  background: var(--chalk, #fff);
+  color: var(--ink, #171715);
+  border-color: var(--chalk, #fff);
+}
+
+/* --------------------------------------------------------------------------
+   4. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+  .fc-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Mobile (2 Columns Normal Phones) */
+@media (max-width: 767px) {
+  .featured-collection {
+    padding: 28px 12px;
+  }
+
+  .fc-header {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
+
+  .fc-header-top {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+
+  .fc-title {
+    font-size: 26px;
+  }
+
+  .fc-header-sub {
+    font-size: 9.5px;
+  }
+
+  .fc-view-all {
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+
+  /* 2 Products Per Row */
+  .fc-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .fc-card-top {
+    padding: 6px 8px;
+    font-size: 9px;
+  }
+
+  .fc-card-media {
+    aspect-ratio: 4 / 5;
+  }
+
+  .fc-img {
+    padding: 8px;
+  }
+
+  .fc-card-info {
+    padding: 8px 8px 10px;
+    gap: 6px;
+  }
+
+  .fc-name {
+    font-size: 13px;
+  }
+
+  .fc-price {
+    font-size: 13px;
+  }
+
+  .fc-color-btn {
+    font-size: 8.5px;
+    padding: 2px 5px;
+    min-height: 20px;
+  }
+
+  .fc-single-color {
+    font-size: 8.5px;
+  }
+
+  .fc-arrow-link {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+}
+
+/* Ultra-Narrow Mobile Fallback (<340px) */
+@media (max-width: 339px) {
+  .fc-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Reduced Motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .fc-card,
+  .fc-img,
+  .fc-canvas,
+  .fc-arrow-link,
+  .fc-view-all {
+    transition: none !important;
+    transform: none !important;
+  }
+  .fc-card:hover .fc-img,
+  .fc-card:hover .fc-canvas {
+    transform: none !important;
+  }
+}

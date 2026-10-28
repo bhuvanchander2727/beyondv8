@@ -1,0 +1,391 @@
+/* ==========================================================================
+   BEYOND — Brand Manifesto
+   Swiss brutalist editorial poster section with warm off-white paper contrast
+   ========================================================================== */
+
+.brand-manifesto {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  background: #f0eee9; /* Warm off-white paper */
+  color: #111110;       /* Deep ink black */
+  padding: clamp(36px, 4vw, 54px) clamp(20px, 4.5vw, 64px) clamp(16px, 2vw, 24px);
+  overflow: hidden;
+  border-top: 2px solid #111110;
+  border-bottom: 2px solid #111110;
+  z-index: 4;
+}
+
+/* --------------------------------------------------------------------------
+   Subtle Paper Grain Overlay (5-8% opacity for maximum text crispness)
+   -------------------------------------------------------------------------- */
+
+.bm-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  mix-blend-mode: multiply;
+  opacity: 0.06;
+}
+
+/* --------------------------------------------------------------------------
+   Top Margin Technical Strip
+   -------------------------------------------------------------------------- */
+
+.bm-top-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(17, 17, 16, 0.18);
+  margin-bottom: clamp(24px, 3.5vw, 40px);
+  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 16, 0.65);
+}
+
+.bm-tag-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bm-pill {
+  background: #111110;
+  color: #f0eee9;
+  padding: 3px 8px;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+.bm-coord {
+  color: rgba(17, 17, 16, 0.55);
+}
+
+.bm-meta-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.bm-mono-meta {
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Main Editorial Composition Grid
+   -------------------------------------------------------------------------- */
+
+.bm-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(32px, 5.5vw, 68px);
+  align-items: end;
+  margin-bottom: clamp(18px, 2.5vw, 28px);
+}
+
+/* Dominant Main Statement */
+.bm-main-statement {
+  position: relative;
+}
+
+.bm-title {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #0e0e0d;
+}
+
+.bm-line {
+  display: block;
+}
+
+.bm-line-1 {
+  font-size: clamp(42px, 8.4vw, 116px);
+  color: #111110;
+}
+
+.bm-line-2 {
+  font-size: clamp(46px, 9.4vw, 130px);
+  color: #000000;
+  padding-left: clamp(4px, 1.2vw, 20px);
+}
+
+/* Supporting Right Column with Architectural Divider */
+.bm-supporting {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2vw, 22px);
+  padding-bottom: 4px;
+  padding-left: clamp(20px, 2.8vw, 40px);
+  border-left: 1px solid rgba(17, 17, 16, 0.15);
+}
+
+.bm-sub-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bm-rule {
+  display: block;
+  width: 44px;
+  height: 2px;
+  background: #111110;
+  transition: width 0.3s ease;
+}
+
+.brand-manifesto:hover .bm-rule {
+  width: 72px;
+}
+
+.bm-sub-heading {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-size: clamp(17px, 2.2vw, 28px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #111110;
+}
+
+/* Body Paragraph Readability (balanced line length & generous line height) */
+.bm-body {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-size: clamp(14px, 1.25vw, 15.5px);
+  line-height: 1.7;
+  color: #1c1c1b;
+  margin: 0;
+  max-width: 44ch;
+  font-weight: 400;
+}
+
+/* Spec Chips & Action Row */
+.bm-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(17, 17, 16, 0.22);
+}
+
+.bm-specs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  color: rgba(17, 17, 16, 0.65);
+}
+
+/* Compact Desktop / Tappable Mobile Button */
+.bm-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #111110;
+  text-decoration: none;
+  padding: 5px 12px;
+  border: 1px solid rgba(17, 17, 16, 0.85);
+  background: transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.bm-link:hover {
+  background: #111110;
+  color: #f0eee9;
+}
+
+.bm-link-arrow {
+  transition: transform 0.2s ease;
+  font-size: 11px;
+}
+
+.bm-link:hover .bm-link-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Margin Technical Strip (Controlled, minimal bottom whitespace)
+   -------------------------------------------------------------------------- */
+
+.bm-bottom-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid rgba(17, 17, 16, 0.18);
+  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 16, 0.5);
+}
+
+.bm-corner-cross {
+  font-size: 11px;
+  color: #111110;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Scroll-In Subtle Reveal Animation
+   -------------------------------------------------------------------------- */
+
+.bm-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bm-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adaptation (320px, 375px, 390px, 430px, tablet, desktop)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .bm-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .bm-supporting {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid rgba(17, 17, 16, 0.15);
+    padding-top: 20px;
+  }
+
+  .bm-line-2 {
+    padding-left: 0;
+  }
+
+  .bm-body {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .brand-manifesto {
+    padding: 30px 14px 16px;
+  }
+
+  .bm-top-strip {
+    font-size: 9px;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+  }
+
+  .bm-meta-right {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .bm-line-1 {
+    font-size: clamp(34px, 10.5vw, 52px);
+  }
+
+  .bm-line-2 {
+    font-size: clamp(38px, 11.8vw, 58px);
+  }
+
+  .bm-sub-heading {
+    font-size: 19px;
+  }
+
+  .bm-body {
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .bm-footer-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .bm-link {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 11px;
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .bm-bottom-strip {
+    font-size: 8.5px;
+    padding-top: 10px;
+  }
+}
+
+/* Ultra-Narrow Mobile (<340px, e.g. Galaxy Fold outer screen) */
+@media (max-width: 339px) {
+  .brand-manifesto {
+    padding: 24px 10px 14px;
+  }
+
+  .bm-line-1 {
+    font-size: 28px;
+  }
+
+  .bm-line-2 {
+    font-size: 32px;
+  }
+
+  .bm-sub-heading {
+    font-size: 17px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Transition to Following Section (.tz)
+   Maintains balanced negative space without excessive vertical void
+   -------------------------------------------------------------------------- */
+.brand-manifesto + .tz {
+  padding-top: clamp(48px, 6vw, 84px);
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .bm-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .bm-rule,
+  .bm-link,
+  .bm-link-arrow {
+    transition: none !important;
+  }
+}

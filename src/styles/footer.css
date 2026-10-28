@@ -1,0 +1,576 @@
+/* ==========================================================================
+   BEYOND — STEP 06: THE FINAL FOOTER
+   Three-layer avant-garde fashion editorial footer & oversized brand wordmark
+   ========================================================================== */
+
+.beyond-footer {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  background: #080807;
+  color: var(--ow, #f0eee9);
+  overflow: hidden;
+  border-top: 1px solid rgba(240, 238, 233, 0.18);
+  z-index: 4;
+}
+
+/* Subtle Film / Darkroom Paper Grain Overlay (4% opacity) */
+.ft-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  mix-blend-mode: screen;
+  opacity: 0.04;
+}
+
+/* Main Inner Container (matching website 1360px grid) */
+.ft-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   LAYER 01 — NEWSLETTER
+   Editorial statement, architectural underline input, production-ready status
+   ========================================================================== */
+.ft-layer-newsletter {
+  position: relative;
+  padding: clamp(40px, 4.8vw, 68px) clamp(20px, 4vw, 56px);
+  border-bottom: 1px solid rgba(240, 238, 233, 0.14);
+  background: rgba(14, 14, 13, 0.45);
+}
+
+.ft-nl-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 28px 48px;
+}
+
+.ft-nl-header {
+  flex: 1 1 360px;
+  max-width: 580px;
+}
+
+.ft-nl-badge {
+  display: inline-block;
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--chalk, #ffffff);
+  background: #171716;
+  border: 1px solid rgba(240, 238, 233, 0.25);
+  padding: 3px 8px;
+  margin-bottom: 12px;
+}
+
+.ft-nl-title {
+  margin: 0 0 10px;
+  font-family: var(--font-display, 'Outfit', -apple-system, sans-serif);
+  font-size: clamp(28px, 4.2vw, 52px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.ft-nl-sub {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14.5px;
+  color: rgba(240, 238, 233, 0.68);
+  line-height: 1.4;
+}
+
+/* Minimal Editorial Underline Form */
+.ft-nl-form {
+  flex: 1 1 380px;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ft-nl-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+
+.ft-nl-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  border-bottom: 2px solid rgba(240, 238, 233, 0.35);
+  border-radius: 0;
+  background: transparent;
+  color: #ffffff;
+  padding: 12px 4px;
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.ft-nl-input::placeholder {
+  color: rgba(240, 238, 233, 0.35);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ft-nl-input:focus-visible {
+  border-bottom-color: #ffffff;
+  box-shadow: 0 1px 0 0 #ffffff;
+}
+
+.ft-nl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 20px;
+  background: #141413;
+  color: var(--ow, #f0eee9);
+  border: 1px solid rgba(240, 238, 233, 0.35);
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  outline: none;
+}
+
+.ft-nl-btn:hover,
+.ft-nl-btn:focus-visible {
+  background: var(--ow, #f0eee9);
+  color: #111110;
+  border-color: var(--ow, #f0eee9);
+}
+
+.ft-nl-arrow {
+  transition: transform 0.2s ease;
+}
+
+.ft-nl-btn:hover .ft-nl-arrow {
+  transform: translateX(3px);
+}
+
+/* Newsletter Status Output (Zero fake success) */
+.ft-nl-status {
+  min-height: 22px;
+  margin-top: 10px;
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.45;
+}
+
+.ft-status-error {
+  color: #ff5555;
+}
+
+.ft-status-ready {
+  color: #44dd99;
+  text-shadow: 0 0 8px rgba(68, 221, 153, 0.35);
+}
+
+/* ==========================================================================
+   LAYER 02 — NAVIGATION COLUMNS
+   EXPLORE, SUPPORT, LEGAL with real working links and unlinked pending indicators
+   ========================================================================== */
+.ft-layer-nav {
+  position: relative;
+  display: block;
+  top: auto;
+  left: auto;
+  right: auto;
+  z-index: 1;
+  padding: clamp(38px, 4.5vw, 60px) clamp(20px, 4vw, 56px);
+  border-bottom: 1px solid rgba(240, 238, 233, 0.14);
+  background: transparent;
+  pointer-events: auto;
+}
+
+.ft-nav-cols {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr 1fr;
+  gap: clamp(24px, 4vw, 52px);
+}
+
+/* Brand Overview Column */
+.ft-col-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ft-brand-mark {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.ft-brand-name {
+  font-family: var(--font-display, 'Outfit', -apple-system, sans-serif);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.ft-brand-spec {
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  color: rgba(240, 238, 233, 0.5);
+  text-transform: uppercase;
+}
+
+.ft-brand-bio {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(240, 238, 233, 0.65);
+  max-width: 320px;
+}
+
+.ft-coords-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  color: rgba(240, 238, 233, 0.45);
+  text-transform: uppercase;
+}
+
+.ft-sep {
+  color: rgba(240, 238, 233, 0.25);
+}
+
+/* Navigation Columns */
+.ft-nav-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.ft-nav-heading {
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(240, 238, 233, 0.14);
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.ft-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.ft-link {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  text-shadow: none;
+  color: rgba(240, 238, 233, 0.72);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  line-height: 1.4;
+  border: none;
+  min-height: auto;
+}
+
+a.ft-link:hover,
+a.ft-link:focus-visible {
+  color: #ffffff;
+  transform: translateX(3px);
+  outline: none;
+}
+
+/* Unlinked indicator for required destinations that do not exist yet */
+.ft-unlinked {
+  color: rgba(240, 238, 233, 0.38);
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ft-pending-badge {
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  color: rgba(240, 238, 233, 0.3);
+}
+
+/* ==========================================================================
+   LAYER 03 — OVERSIZED WORDMARK
+   Enormous statement typography stretching fluidly across the footer width
+   ========================================================================== */
+.ft-layer-wordmark {
+  position: relative;
+  padding: clamp(24px, 3.5vw, 44px) clamp(20px, 4vw, 56px) clamp(20px, 2.5vw, 32px);
+  display: flex;
+  flex-direction: column;
+}
+
+.ft-wordmark-wrap {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(8px, 1.5vw, 16px) 0;
+}
+
+.ft-wordmark {
+  display: block;
+  font-family: var(--font-display, 'Outfit', -apple-system, sans-serif);
+  font-size: clamp(52px, 16vw, 224px);
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--chalk, #ffffff);
+  width: 100%;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Prevent any subtle horizontal clipping */
+  box-sizing: border-box;
+}
+
+/* Bottom Archival Metadata Strip */
+.ft-bottom-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: clamp(16px, 2.2vw, 28px);
+  padding-top: 14px;
+  border-top: 1px solid rgba(240, 238, 233, 0.1);
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 233, 0.48);
+}
+
+.ft-meta-left {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.ft-meta-right {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.ft-meta-sep {
+  color: rgba(240, 238, 233, 0.22);
+}
+
+.ft-top-link {
+  color: var(--ow, #f0eee9);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  padding: 2px 6px;
+  border: 1px solid rgba(240, 238, 233, 0.2);
+  background: rgba(17, 17, 16, 0.6);
+  transition: all 0.2s ease;
+}
+
+.ft-top-link:hover,
+.ft-top-link:focus-visible {
+  background: var(--ow, #f0eee9);
+  color: #111110;
+  border-color: var(--ow, #f0eee9);
+}
+
+/* ==========================================================================
+   Mobile & Responsive Adaptations (Critical)
+   320px, 375px, 390px, 430px, 768px, 1024px, 1440px
+   ========================================================================== */
+
+/* Tablet (768px - 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .ft-nav-cols {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .ft-col-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Mobile (< 768px: 430px, 390px, 375px, 320px) */
+@media (max-width: 767px) {
+  .ft-layer-newsletter {
+    padding: 32px 16px;
+  }
+
+  .ft-nl-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+  }
+
+  .ft-nl-header,
+  .ft-nl-form {
+    max-width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .ft-nl-title {
+    font-size: 28px;
+  }
+
+  .ft-nl-input-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .ft-nl-input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 11.5px;
+  }
+
+  .ft-nl-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px; /* Accessible touch target */
+  }
+
+  /* Navigation Columns on Mobile */
+  .ft-layer-nav {
+    padding: 32px 16px;
+  }
+
+  .ft-nav-cols {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 18px;
+  }
+
+  .ft-col-brand {
+    grid-column: 1 / -1;
+    margin-bottom: 6px;
+  }
+
+  .ft-brand-bio {
+    max-width: 100%;
+    font-size: 13px;
+  }
+
+  .ft-link {
+    font-size: 13.5px;
+    padding: 3px 0;
+  }
+
+  /* Wordmark on Mobile */
+  .ft-layer-wordmark {
+    padding: 20px 14px 20px;
+  }
+
+  .ft-wordmark {
+    font-size: clamp(48px, 17.5vw, 76px);
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+  }
+
+  .ft-bottom-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 9px;
+  }
+
+  .ft-top-link {
+    align-self: flex-start;
+    padding: 4px 8px;
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* Ultra-compact Mobile (320px - 340px) */
+@media (max-width: 339px) {
+  .ft-layer-newsletter {
+    padding: 24px 12px;
+  }
+
+  .ft-nl-title {
+    font-size: 24px;
+  }
+
+  .ft-layer-nav {
+    padding: 24px 12px;
+  }
+
+  .ft-nav-cols {
+    grid-template-columns: 1fr; /* Single column on 320px */
+    gap: 22px;
+  }
+
+  .ft-wordmark {
+    font-size: 44px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .ft-link,
+  .ft-nl-btn,
+  .ft-nl-arrow,
+  .ft-top-link {
+    transition: none !important;
+    transform: none !important;
+  }
+  a.ft-link:hover,
+  .ft-nl-btn:hover .ft-nl-arrow {
+    transform: none !important;
+  }
+}

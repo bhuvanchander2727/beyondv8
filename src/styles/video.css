@@ -1,0 +1,430 @@
+/* ==========================================================================
+   BEYOND — STEP 04: CINEMATIC VIDEO SECTION
+   Wide, horizontally framed, integrated underground fashion cinema
+   ========================================================================== */
+
+/* Clean transition from preceding Featured Collection: avoid double hairline */
+.featured-collection + .cinematic-video-section {
+  border-top: none;
+}
+
+.cinematic-video-section {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  background: #0a0a09;
+  color: var(--ow, #f0eee9);
+  padding: clamp(34px, 4.2vw, 54px) clamp(16px, 3.5vw, 44px);
+  overflow: hidden;
+  border-top: 1px solid rgba(240, 238, 233, 0.18);
+  border-bottom: none; /* Sharp cut directly into the 2px solid dark border of Brand Manifesto */
+  z-index: 4;
+}
+
+/* Subtle Film Grain Overlay (4% opacity) */
+.cv-grain {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  mix-blend-mode: screen;
+  opacity: 0.04;
+}
+
+/* Inner Centered Container (Max-Width 1360px matching website grid) */
+.cv-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.8vw, 22px);
+}
+
+/* --------------------------------------------------------------------------
+   Section Header & Technical Metadata
+   -------------------------------------------------------------------------- */
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding-bottom: clamp(10px, 1.4vw, 16px);
+  border-bottom: 1px solid rgba(240, 238, 233, 0.14);
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 233, 0.72);
+}
+
+.cv-header-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cv-badge {
+  background: var(--ow, #f0eee9);
+  color: #111110;
+  padding: 2.5px 7px;
+  font-weight: 700;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+}
+
+.cv-label {
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.cv-header-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cv-subtitle {
+  color: rgba(240, 238, 233, 0.75);
+}
+
+.cv-dot {
+  color: rgba(240, 238, 233, 0.4);
+  font-size: 9px;
+}
+
+.cv-coords {
+  color: rgba(240, 238, 233, 0.55);
+}
+
+/* --------------------------------------------------------------------------
+   Wide Cinematic Video Frame
+   Aspect Ratio: 16:9 matching measured reference (1.78:1)
+   Square, sharp edges, no rounded cards, no thick frames
+   -------------------------------------------------------------------------- */
+.cv-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: clamp(480px, 48vw, 680px);
+  background: #0c0c0b;
+  border: 1px solid rgba(240, 238, 233, 0.18);
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Native Video Element */
+.cv-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%; /* Optimal vertical framing for the 5 models & vehicle */
+  display: block;
+  background: #0c0c0b;
+  -webkit-user-select: none;
+  user-select: none;
+  filter: contrast(104%);
+}
+
+/* Registration Crosshairs (+) */
+.cv-cross {
+  position: absolute;
+  font-family: ui-monospace, SF Mono, Menlo, monospace;
+  font-size: 12px;
+  line-height: 1;
+  color: rgba(240, 238, 233, 0.45);
+  pointer-events: none;
+  z-index: 3;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.cv-cross-tl { top: 10px; left: 12px; }
+.cv-cross-tr { top: 10px; right: 12px; }
+.cv-cross-bl { bottom: 10px; left: 12px; }
+.cv-cross-br { bottom: 10px; right: 12px; }
+
+/* --------------------------------------------------------------------------
+   Premium Cinematic Text Overlay (Upper Negative Space Integration)
+   Bold, condensed, editorial headline + restrained monospace metadata
+   -------------------------------------------------------------------------- */
+.cv-text-overlay {
+  position: absolute;
+  top: clamp(16px, 3.8vw, 42px);
+  left: 50%;
+  transform: translate(-50%, 8px);
+  width: calc(100% - 32px);
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(5px, 0.8vw, 9px);
+  pointer-events: none;
+  z-index: 4;
+  -webkit-user-select: none;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+/* Subtle fade-in on section viewport entry */
+.cinematic-video-section.visible .cv-text-overlay {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.cv-overlay-label {
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: clamp(8.5px, 1.1vw, 10.5px);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 233, 0.85);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85), 0 0 2px rgba(0, 0, 0, 0.9);
+}
+
+.cv-overlay-title {
+  margin: 0;
+  font-family: var(--font-display, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(28px, 4.4vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8), 0 0 3px rgba(0, 0, 0, 0.9);
+}
+
+.cv-overlay-sub {
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: clamp(9.5px, 1.25vw, 12px);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 233, 0.9);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85), 0 0 2px rgba(0, 0, 0, 0.9);
+}
+
+/* --------------------------------------------------------------------------
+   Accessible Keyboard-Only Motion Control (WCAG 2.2.2)
+   Zero persistent visual clutter. Completely clipped until focused via Tab key.
+   -------------------------------------------------------------------------- */
+.cv-a11y-toggle {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 10;
+  padding: 8px 14px;
+  background: #0c0c0b;
+  color: #f0eee9;
+  border: 1px solid #f0eee9;
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  /* Visually hidden off-screen until keyboard focused */
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: none;
+}
+
+.cv-a11y-toggle:focus-visible {
+  clip: auto;
+  clip-path: none;
+  height: auto;
+  width: auto;
+  overflow: visible;
+  white-space: normal;
+  opacity: 1;
+  pointer-events: auto;
+  outline: 2px solid #f0eee9;
+  outline-offset: 2px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);
+}
+
+/* --------------------------------------------------------------------------
+   Section Footer Marker
+   -------------------------------------------------------------------------- */
+.cv-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(240, 238, 233, 0.12);
+  font-family: ui-monospace, SF Mono, Menlo, Monaco, Consolas, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 233, 0.45);
+}
+
+.cv-corner-mark {
+  font-size: 11px;
+  color: rgba(240, 238, 233, 0.65);
+}
+
+/* --------------------------------------------------------------------------
+   Graceful Reveal Transition
+   -------------------------------------------------------------------------- */
+.cv-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cv-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   Tablet Responsive Breakpoint (768px - 1023px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .cinematic-video-section {
+    padding: 30px 20px;
+  }
+
+  .cv-frame {
+    aspect-ratio: 16 / 9;
+    max-height: 520px;
+  }
+
+  .cv-text-overlay {
+    top: clamp(14px, 3.2vw, 28px);
+    gap: 6px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Responsive Breakpoint (< 768px: 430px, 390px, 375px, 320px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .cinematic-video-section {
+    padding: 24px 12px 18px;
+  }
+
+  .cv-header {
+    font-size: 9px;
+    margin-bottom: 4px;
+    padding-bottom: 8px;
+  }
+
+  .cv-header-right {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 4px;
+  }
+
+  .cv-frame {
+    aspect-ratio: 16 / 9;
+    max-height: none;
+    width: 100%;
+  }
+
+  .cv-video {
+    object-position: center 46%;
+  }
+
+  .cv-text-overlay {
+    top: clamp(12px, 3.2vw, 20px);
+    width: calc(100% - 20px);
+    gap: 4px;
+  }
+
+  .cv-overlay-label {
+    font-size: clamp(8px, 2.2vw, 9.5px);
+    letter-spacing: 0.16em;
+  }
+
+  .cv-overlay-title {
+    font-size: clamp(22px, 5.8vw, 30px);
+    letter-spacing: -0.03em;
+  }
+
+  .cv-overlay-sub {
+    font-size: clamp(8.5px, 2.4vw, 10.5px);
+    letter-spacing: 0.14em;
+  }
+
+  .cv-footer {
+    font-size: 8px;
+    padding-top: 8px;
+  }
+}
+
+/* Ultra-compact Mobile (320px - 340px) */
+@media (max-width: 339px) {
+  .cinematic-video-section {
+    padding: 20px 8px 14px;
+  }
+
+  .cv-header {
+    font-size: 8px;
+  }
+
+  .cv-label {
+    font-size: 9.5px;
+  }
+
+  .cv-text-overlay {
+    top: 9px;
+    gap: 3px;
+  }
+
+  .cv-overlay-label {
+    font-size: 7.5px;
+    letter-spacing: 0.14em;
+  }
+
+  .cv-overlay-title {
+    font-size: 19px;
+  }
+
+  .cv-overlay-sub {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility: Reduced Motion Preference
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .cv-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .cv-text-overlay {
+    opacity: 1 !important;
+    transform: translate(-50%, 0) !important;
+    transition: none !important;
+  }
+}

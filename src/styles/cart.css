@@ -1,0 +1,329 @@
+/* Cart Drawer & Subpages (Checkout, Contact, About, 404) */
+
+/* Cart Overlay Backdrop */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.cart-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Cart Slide-in Drawer */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(90vw, 480px);
+  background: var(--ink);
+  border-left: 4px solid var(--chalk);
+  box-shadow: -10px 0 0 rgba(0, 0, 0, 0.8);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: clamp(20px, 3vw, 32px);
+  color: var(--chalk);
+}
+
+.cart-drawer.active {
+  transform: translateX(0);
+}
+
+.cart-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--c3);
+}
+
+.cart-drawer-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.cart-close-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--chalk);
+  font-size: 20px;
+  font-weight: 700;
+  transition: background 0.15s;
+}
+
+.cart-close-btn:hover {
+  background: var(--chalk);
+  color: var(--ink);
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 6px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid var(--c2);
+}
+
+.cart-item canvas {
+  width: 80px;
+  height: 96px;
+  border: 2px solid var(--chalk);
+  image-rendering: pixelated;
+  object-fit: cover;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 96px;
+  border: 2px solid var(--chalk);
+  object-fit: cover;
+  background: var(--c1);
+}
+
+.cart-item-info h4 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cart-item-info p {
+  margin: 0 0 8px;
+  font-size: 11px;
+  color: var(--c4);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.cart-item-info .item-price {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.cart-item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.cart-remove-btn {
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--c4);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cart-remove-btn:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.cart-drawer-footer {
+  padding-top: 20px;
+  border-top: 2px solid var(--c3);
+}
+
+.cart-subtotal {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.cart-empty {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--c4);
+}
+
+/* Subpage Containers */
+.subpage {
+  padding: clamp(130px, 14vw, 200px) clamp(20px, 4vw, 56px) 100px;
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+
+/* Checkout & Contact Forms */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(24px, 4vw, 50px);
+  align-items: start;
+}
+
+.form-card {
+  grid-column: 1 / 8;
+  background: var(--ink);
+  border: 4px solid var(--chalk);
+  box-shadow: 10px 10px 0 var(--ink);
+  padding: clamp(20px, 4vw, 36px);
+}
+
+.form-summary {
+  grid-column: 8 / 13;
+  background: var(--ink);
+  border: 4px solid var(--chalk);
+  box-shadow: 10px 10px 0 var(--ink);
+  padding: clamp(20px, 4vw, 32px);
+}
+
+.form-field {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-field label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--chalk);
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  background: #080808;
+  border: 2px solid var(--chalk);
+  color: var(--chalk);
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  min-height: 48px;
+  outline: none;
+  transition: border-color .2s;
+}
+
+.form-input:focus-visible {
+  border-color: var(--chalk);
+  outline: 2px solid var(--ow);
+}
+
+.form-input.invalid {
+  border-color: #ff5555;
+}
+
+.field-error {
+  color: #fff;
+  background: #171715;
+  border-left: 3px solid #ff5555;
+  padding: 4px 8px;
+  font-size: 11px;
+  margin-top: 6px;
+  display: block;
+  letter-spacing: .06em;
+}
+
+.summary-items {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-bottom: 1px solid var(--c2);
+  padding-bottom: 16px;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--c4);
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 16px;
+  color: var(--chalk);
+}
+
+.confirmation-card {
+  max-width: 680px;
+  margin: 0 auto;
+  background: var(--ink);
+  border: 4px solid var(--chalk);
+  box-shadow: 12px 12px 0 var(--ink);
+  padding: clamp(28px, 5vw, 56px);
+  text-align: center;
+}
+
+.order-badge {
+  display: inline-block;
+  background: var(--chalk);
+  color: var(--ink);
+  padding: 8px 18px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  font-size: 18px;
+  margin: 20px 0;
+  transform: rotate(-1.5deg);
+}
+
+/* 404 Section */
+.notfound-card {
+  max-width: 600px;
+  margin: 40px auto;
+  background: var(--ink);
+  border: 4px solid var(--chalk);
+  box-shadow: 10px 10px 0 var(--ink);
+  padding: 40px;
+  text-align: center;
+}
+
+.notfound-code {
+  font-size: clamp(60px, 12vw, 120px);
+  line-height: .9;
+  font-weight: 600;
+  letter-spacing: -.05em;
+  margin: 0 0 16px;
+  text-shadow: 6px 6px 0 #000;
+}
+
+@media (max-width: 860px) {
+  .form-grid {
+    display: block;
+  }
+  .form-card, .form-summary {
+    margin-bottom: 30px;
+  }
+}

@@ -1,0 +1,147 @@
+/* ==========================================================================
+   BEYOND — Announcement Ticker
+   Sharp-edged, editorial horizontal ticker immediately below hero
+   ========================================================================== */
+
+.announcement-ticker {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #090908;
+  color: var(--ow, #f0eee9);
+  border-top: 1px solid rgba(240, 238, 233, 0.2);
+  border-bottom: 1px solid rgba(240, 238, 233, 0.2);
+  height: 38px;
+  display: flex;
+  align-items: center;
+  z-index: 5;
+  user-select: none;
+  contain: paint;
+  margin: 0;
+  padding: 0;
+}
+
+/* Accessible text for screen readers */
+.announcement-ticker .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Continuous Marquee Track */
+.announcement-ticker .ticker-track {
+  display: flex;
+  width: max-content;
+  flex-shrink: 0;
+  align-items: center;
+  will-change: transform;
+  animation: beyond-marquee 38s linear infinite;
+}
+
+/* Individual Content Group (Duplicate pairs for seamless zero-jump loop) */
+.announcement-ticker .ticker-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Pause on hover for reader comfort */
+@media (hover: hover) {
+  .announcement-ticker:hover .ticker-track {
+    animation-play-state: paused;
+  }
+}
+
+/* Zero-jump seamless loop */
+@keyframes beyond-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* High-contrast condensed typography for key words */
+.announcement-ticker .ticker-bold {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffffff;
+  display: inline-block;
+}
+
+/* Monospace typography for technical labels */
+.announcement-ticker .ticker-mono {
+  font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 233, 0.72);
+  display: inline-block;
+}
+
+/* Small geometric separators */
+.announcement-ticker .ticker-sep {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 11px;
+  line-height: 1;
+  color: rgba(240, 238, 233, 0.36);
+  padding: 0 16px;
+  display: inline-block;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .announcement-ticker {
+    height: 33px;
+  }
+  .announcement-ticker .ticker-bold {
+    font-size: 10.5px;
+    letter-spacing: 0.11em;
+  }
+  .announcement-ticker .ticker-mono {
+    font-size: 9.5px;
+    letter-spacing: 0.13em;
+  }
+  .announcement-ticker .ticker-sep {
+    padding: 0 11px;
+    font-size: 9.5px;
+  }
+  .announcement-ticker .ticker-track {
+    animation-duration: 30s;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .announcement-ticker .ticker-track {
+    animation: none !important;
+    transform: none !important;
+  }
+  .announcement-ticker {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .announcement-ticker::-webkit-scrollbar {
+    display: none;
+  }
+  .announcement-ticker .ticker-group:nth-child(2) {
+    display: none;
+  }
+}

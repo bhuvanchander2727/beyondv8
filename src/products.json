@@ -1,0 +1,86 @@
+[
+  {
+    "id": "BEY-001",
+    "name": "Washed Heavyweight Tee",
+    "price": 48,
+    "category": "tees",
+    "garmentType": "tee",
+    "image": null,
+    "colorways": [
+      { "name": "Bone", "tone": 0.9 },
+      { "name": "Ash", "tone": 0.62 },
+      { "name": "Soot", "tone": 0.34 }
+    ],
+    "sizes": ["S", "M", "L", "XL"],
+    "description": "280 gsm cotton jersey, garment washed with raw edge accents. Heavy drape, softened concrete texture, built to wear in and wear out."
+  },
+  {
+    "id": "BEY-002",
+    "name": "Concrete Zip Hoodie",
+    "price": 128,
+    "category": "hoodies",
+    "garmentType": "hood",
+    "image": null,
+    "colorways": [
+      { "name": "Ash", "tone": 0.62 },
+      { "name": "Soot", "tone": 0.34 }
+    ],
+    "sizes": ["S", "M", "L", "XL"],
+    "description": "Custom milled 480 gsm heavyweight brushed loopback fleece. Boxy drop-shoulder cut, dual two-way industrial zipper, distressed ribbing."
+  },
+  {
+    "id": "BEY-003",
+    "name": "Raw Edge Oversized Tee",
+    "price": 56,
+    "category": "tees",
+    "garmentType": "over",
+    "image": null,
+    "colorways": [
+      { "name": "Bone", "tone": 0.9 },
+      { "name": "Soot", "tone": 0.34 }
+    ],
+    "sizes": ["S", "M", "L", "XL"],
+    "description": "Unhemmed collar and cuffs with an exaggerated dropped shoulder silhouette. Pigment dyed and silicon washed for a lived-in stone finish."
+  },
+  {
+    "id": "BEY-004",
+    "name": "Distressed Utility Jacket",
+    "price": 210,
+    "category": "jackets",
+    "garmentType": "jack",
+    "image": null,
+    "colorways": [
+      { "name": "Ash", "tone": 0.62 },
+      { "name": "Bone", "tone": 0.9 },
+      { "name": "Soot", "tone": 0.34 }
+    ],
+    "sizes": ["S", "M", "L", "XL"],
+    "description": "Stone-washed duck canvas shell featuring quad gusset cargo pockets, heavy gauge metal snap closures, and reinforced elbow paneling."
+  },
+  {
+    "id": "BEY-005",
+    "name": "Black Leather Biker Jacket",
+    "price": 340,
+    "category": "jackets",
+    "garmentType": "jack",
+    "image": "/assets/biker-jacket.webp",
+    "colorways": [
+      { "name": "Black", "tone": 0.1 }
+    ],
+    "sizes": ["S", "M", "L", "XL"],
+    "description": "Premium 1.2mm full-grain cowhide leather with matte black finish. Asymmetrical front zip, heavy-gauge belted hem, and zippered gusset cuffs."
+  },
+  {
+    "id": "BEY-006",
+    "name": "Black Leather Bomber Jacket",
+    "price": 290,
+    "category": "jackets",
+    "garmentType": "jack",
+    "image": "/assets/bomber-jacket.webp",
+    "colorways": [
+      { "name": "Black", "tone": 0.1 }
+    ],
+    "sizes": ["S", "M", "L", "XL"],
+    "description": "Subtle grain washed black nappa leather shell with thick ribbed collar, cuffs, and hem. Utility flight sleeve pocket and custom puller."
+  }
+]
